@@ -33,7 +33,7 @@ static void wordGame(){
 			history[i] = temp;
 			System.out.println("Gezegd is: " + Arrays.toString(history));
 			history = Arrays.copyOf(history, history.length + 1);
-		}else {															//if start letter is wrong
+		}else {	//if start letter is wrong
 			System.out.println("word has to start with " + pastEndLetter);
 			i=i-1;
 			
