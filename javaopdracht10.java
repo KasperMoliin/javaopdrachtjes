@@ -9,7 +9,6 @@ wordGame();
 static void wordGame(){
 	Scanner invoer = new Scanner(System.in);
 	String[] history = new String[2];
-	
 	System.out.println("enter word");
 	history[0] = invoer.next();
 	
@@ -19,14 +18,14 @@ static void wordGame(){
 	for(int i=1; i<history.length +1 ;i++) {
 	//String word = invoer.next();
 	history[i] = invoer.next();
-	history = Arrays.copyOf(history, history.length + 1);
 	System.out.println(Arrays.toString(history));
 	char startLetter = history[i].charAt(0);
 	char pastEndLetter = history[i-1].charAt(history[i-1].length()-1);
 	char endLetter1 = history[i].charAt(history[i].length()-1);
-	System.out.println(pastEndLetter);
-	System.out.println(startLetter);
+//	System.out.println(pastEndLetter);
+//	System.out.println(startLetter);
 	System.out.println("enter word beginning with " + endLetter1);
+	history = Arrays.copyOf(history, history.length + 1);
 	}
 }}
 
