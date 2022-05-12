@@ -10,24 +10,39 @@ static void wordGame(){
 	Scanner invoer = new Scanner(System.in);
 	String[] history = new String[2];
 	System.out.println("enter word");
-	history[0] = invoer.next();
+	history[0] = invoer.next(); 	//first array item has to be here because the next function uses i-1
 	
-	char endLetter = history[0].charAt(history[0].length()-1);
-	System.out.println("enter word beginning with " + endLetter);
+	char FirstEndLetter = history[0].charAt(history[0].length()-1);
+	System.out.println("enter word beginning with " + FirstEndLetter);
 	
 	for(int i=1; i<history.length +1 ;i++) {
-	//String word = invoer.next();
-	history[i] = invoer.next();
-	System.out.println(Arrays.toString(history));
-	char startLetter = history[i].charAt(0);
-	char pastEndLetter = history[i-1].charAt(history[i-1].length()-1);
-	char endLetter1 = history[i].charAt(history[i].length()-1);
-//	System.out.println(pastEndLetter);
-//	System.out.println(startLetter);
-	System.out.println("enter word beginning with " + endLetter1);
-	history = Arrays.copyOf(history, history.length + 1);
+		String temp = invoer.next();
+		
+		char startLetter = temp.charAt(0);
+		char pastEndLetter = history[i-1].charAt(history[i-1].length()-1);
+		char endLetter = temp.charAt(temp.length()-1);
+//		System.out.println(pastEndLetter);
+//		System.out.println(startLetter);
+		if(Arrays.asList(history).contains(temp)) { 					//checks if word has already been used
+			System.out.println(temp + " has already been said");
+			System.out.println("enter word beginning with " + pastEndLetter);
+			i=i-1;
+		}
+		else if(Character.compare(pastEndLetter, startLetter) == 0) {   //if word is correct
+			System.out.println("enter word beginning with " + endLetter);
+			history[i] = temp;
+			System.out.println("Gezegd is: " + Arrays.toString(history));
+			history = Arrays.copyOf(history, history.length + 1);
+		}else {															//if start letter is wrong
+			System.out.println("word has to start with " + pastEndLetter);
+			i=i-1;
+			
+			 
+		}
+	
 	}
-}}
+}
+}
 
 //Maak een programma dat werkt als het bekende "Ik ga op vakantie en neem mee...".
 
