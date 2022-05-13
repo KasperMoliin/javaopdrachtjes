@@ -2,6 +2,11 @@ import java.util.Scanner;
 
 public class opdracht7 {
 public static void main(String[] args) {
+Lingo();
+
+
+}
+static void Lingo() {
 	Scanner lingoScan = new Scanner(System.in);
 	System.out.println("Enter a 5 letter word");
 	String poging1 = lingoScan.next();
@@ -21,9 +26,10 @@ public static void main(String[] args) {
 			answerKey[i] = '0';
 		}
 	}
-	System.out.println(answerKey);}
-
-
-
+	System.out.println(answerKey);
+	Lingo();
+	}
+	
 }
 }
+
